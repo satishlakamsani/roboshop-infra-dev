@@ -37,7 +37,7 @@ resource "terraform_data" "bootstrap" {
   }
 }
 
-resource "aws_instance" "redis" {
+/*resource "aws_instance" "redis" {
   ami           = local.ami_id
   instance_type = "t3.micro"
   subnet_id = local.database_subnet_id
@@ -74,4 +74,4 @@ resource "terraform_data" "bootstrap_redis" {
         "sudo sh /tmp/bootstrap.sh redis"
     ]
   }
-}
+}*/
