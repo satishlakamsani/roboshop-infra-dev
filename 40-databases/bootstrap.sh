@@ -4,6 +4,10 @@ environment=$2
 
 dnf install ansible -y
 
+# Install AWS Ansible collection
+ansible-galaxy collection install amazon.aws
+
+
 cd /home/ec2-user
 git clone https://github.com/satishlakamsani/ansible-roboshop-roles-tf.git
 
