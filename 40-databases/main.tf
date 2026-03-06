@@ -120,7 +120,7 @@ resource "aws_instance" "rabbitmq" {
   ami           = local.ami_id
   instance_type = "t3.micro"
   subnet_id = local.database_subnet_id
-  vpc_security_group_ids = [local.rabbit_sg_id]
+  vpc_security_group_ids = [local.rabbitmq_sg_id]
 
   tags = merge(
     {
