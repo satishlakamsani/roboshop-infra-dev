@@ -18,7 +18,7 @@ resource "aws_route53_record" "redis" {
 
 resource "aws_route53_record" "mysql" {
   zone_id =  var.zone_id
-  name    = "redis-${var.environment}"
+  name    = "mysql-${var.environment}"
   type    = "A"
   ttl     = "1"
   records = [aws_instance.mysql.private_ip]
@@ -27,7 +27,7 @@ resource "aws_route53_record" "mysql" {
 
 resource "aws_route53_record" "rabbitmq" {
   zone_id =  var.zone_id
-  name    = "redis-${var.environment}"
+  name    = "rabbitmq-${var.environment}"
   type    = "A"
   ttl     = "1"
   records = [aws_instance.rabbitmq.private_ip]
