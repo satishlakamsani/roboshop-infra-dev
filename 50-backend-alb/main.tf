@@ -8,10 +8,11 @@ resource "aws_lb" "backend_alb" {
   #keeping it as false,just to delete using terrform while practice
   enable_deletion_protection = false
 
-  tags = merge{
+  tags = merge({
     Name = "${var.project}-${var.environment}"
   },
   local.common_tags
+  )
 }
 
 resource "aws_lb_listener" "http" {
