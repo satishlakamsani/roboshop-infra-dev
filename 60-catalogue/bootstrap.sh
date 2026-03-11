@@ -1,9 +1,14 @@
 #!/bin/bash
 
-component = $1
-environment = $2
+component=$1
+environment=$2
 
 dnf install ansible -y
+
+
+# Install AWS Ansible collection
+ansible-galaxy collection install amazon.aws
+
 
 cd /home/ec2-user
 
