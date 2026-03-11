@@ -49,7 +49,7 @@ resource "aws_ec2_instance_state" "catalogue" {
 
   # Optional: set force to true to request a forced stop if needed
   # force = true 
-  depends_on = [terraform.data.catalogue]
+  depends_on = [terraform_data.catalogue]
 }
 
 resource "aws_ami_from_instance" "catalogue" {
