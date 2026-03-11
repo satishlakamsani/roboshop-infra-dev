@@ -1,21 +1,18 @@
 #!/bin/bash
-
 component=$1
 environment=$2
 
 dnf install ansible -y
-
 
 # Install AWS Ansible collection
 ansible-galaxy collection install amazon.aws
 
 
 cd /home/ec2-user
-
 git clone https://github.com/satishlakamsani/ansible-roboshop-roles-tf.git
 
-cd ansible-roboshop-roles-tf.git
+cd ansible-roboshop-roles-tf
 
 git pull
 
-ansible-playbook -e component=$catalogue -e env=$environment roboshop.yaml
+ansible-playbook -e component=$component -e env=$environment roboshop.yaml
