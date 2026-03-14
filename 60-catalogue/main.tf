@@ -65,7 +65,7 @@ resource "aws_ami_from_instance" "catalogue" {
   )
 
 }
-/*
+
 resource "aws_lb_target_group" "catalogue" {
   name     = "${var.project}-${var.environment}-catalogue"
   port     = 8080
@@ -137,7 +137,6 @@ resource "aws_launch_template" "catalogue" {
     )
 }
 
-*/
 
 /*
 resource "aws_autoscaling_group" "catalogue" {
