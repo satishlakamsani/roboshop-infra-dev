@@ -65,7 +65,7 @@ resource "aws_ami_from_instance" "catalogue" {
   )
 
 }
-
+/*
 resource "aws_lb_target_group" "catalogue" {
   name     = "${var.project}-${var.environment}-catalogue"
   port     = 8080
@@ -136,3 +136,35 @@ resource "aws_launch_template" "catalogue" {
         local.common_tags
     )
 }
+
+*/
+
+/*
+resource "aws_autoscaling_group" "catalogue" {
+  availability_zones = ["us-east-1a"]
+  desired_capacity   = 1
+  max_size           = 2
+  min_size           = 1
+
+  launch_template {
+    id      = aws_launch_template.example.id
+    version = aws_launch_template.example.latest_version
+  }
+
+  tag {
+    key                 = "Key"
+    value               = "Value"
+    propagate_at_launch = true
+  }
+
+  instance_refresh {
+    strategy = "Rolling"
+    preferences {
+      min_healthy_percentage = 50
+    }
+    triggers = ["tag"]
+  }
+}
+
+
+*/
