@@ -1,10 +1,11 @@
 resource "aws_acm_certificate" "roboshop" {
-  domain_name       = "*.${var.domain_name}"
-  validation_method = "DNS"
+  domain_name               = var.domain_name   # root domain
+  subject_alternative_names = ["*.${var.domain_name}"]  # wildcard
+  validation_method         = "DNS"
 
   tags = merge(
     {
-        Name = "${var.project}-${var.environment}-${var.domain_name}"
+      Name = "${var.project}-${var.environment}-${var.domain_name}"
     },
     local.common_tags
   )
@@ -13,6 +14,7 @@ resource "aws_acm_certificate" "roboshop" {
     create_before_destroy = true
   }
 }
+
 
 resource "aws_route53_record" "roboshop" {
   for_each = {
