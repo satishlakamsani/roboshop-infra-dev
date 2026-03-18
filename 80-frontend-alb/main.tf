@@ -1,7 +1,7 @@
 resource "aws_lb" "frontend_alb"{
     name = "${var.project}-${var.environment}-frontend"  #roboshop-dev-frontend
     internal = false
-    load_balancer_type = application
+    load_balancer_type = "application"
     security_groups = [local.frontend_alb_sg_id]
     subnets = local.public_subnet_ids
 
@@ -17,7 +17,7 @@ resource "aws_lb" "frontend_alb"{
     
     }
 
-resource "aws_lb_listner"  "https"{
+resource "aws_lb_listener"  "https"{
     load_balancer_arn = aws_lb.frontend_alb.arn
     port = "443"
     protocol = "HTTPS"
