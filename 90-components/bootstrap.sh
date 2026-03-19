@@ -1,0 +1,15 @@
+component=$1
+environment=$2
+app_version=$3
+dnf install ansible -y 
+
+# Install AWS Ansible collection
+ansible-galaxy collection install amazon.aws
+
+cd /home/ec2-user
+git clone https://github.com/satishlakamsani/ansible-roboshop-roles-tf.git
+
+cd ansible-roboshop-roles-tf
+git pull
+
+ansible-playbook -e component=$component -e env=$environment -e app_version=$app_version roboshop.yaml
