@@ -12,7 +12,7 @@ mongodb:
 
 
 - name: mongodb_catalogue #mongodb acceptting connections from catalogue
-  poer: 27017
+  port: 27017
   src: catalogue
   dest: mongodb
 
